@@ -12,7 +12,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { loader: "vue", test: /\.vue$/ },
+      { loader: "vue-loader", test: /\.vue$/ },
       { loader: "babel-loader", test: /\.js$/, exclude: /node_modules/ }
     ]
   }
