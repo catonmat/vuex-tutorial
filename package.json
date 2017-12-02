@@ -1,0 +1,9 @@
+{
+  "name": "devs-against-humanity",
+  "version": "1.0.0",
+  "description": "A Vue/Vuex version of the popular card game, Cards Against Humanity",
+  "main": "index.js",
+  "repository": "git@gitlab.com:samdbeckham/devs-against-humanity.git",
+  "author": "sam@beckham.io",
+  "license": "MIT"
+}
