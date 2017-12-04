@@ -1,13 +1,21 @@
 <template>
-  <h1>Allreet Pets</h1>
+  <div>
+    <h1>Allreet Pets</h1>
+    <div>{{ cards.cardone.text }}</div>
+  </div>
 </template>
 
 <script>
-  console.log('I R Component')  
+  import { mapState } from "vuex";
+  export default {
+    computed: mapState({
+      cards: "cards"
+    })
+  };
 </script>
 
 <style>
-  h1 {
-    color: red;
-  }
+h1 {
+  color: red;
+}
 </style>
