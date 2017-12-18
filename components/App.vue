@@ -1,21 +1,16 @@
 <template>
-  <div>
-    <h1>Allreet Pets</h1>
-    <div>{{ cards.cardone.text }}</div>
-  </div>
+  <CardList></CardList>
 </template>
 
 <script>
-  import { mapState } from "vuex";
+  import CardList from "./CardList.vue";
+
   export default {
-    computed: mapState({
-      cards: "cards"
-    })
+    components: {
+      CardList
+    }
   };
 </script>
 
 <style>
-h1 {
-  color: red;
-}
 </style>
