@@ -53,7 +53,7 @@ const state = [
   }
 ];
 
-const getters = {
+export const getters = {
   cardsIn: state => location =>  {
     return state.filter(card => card.position === location)
   }
