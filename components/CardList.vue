@@ -5,7 +5,7 @@
       :key="card.id"
       class="card"
      >
-      <div v-if="!card.faceUp" class="card-back">Cards Against Humanity</div>
+      <div v-if="!card.faceUp" class="card-back">Devs Against Humanity</div>
       <div v-if="card.faceUp" class="card-text">{{ card.text }}</div>
     </div>
   </div>
