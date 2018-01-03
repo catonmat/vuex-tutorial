@@ -3,6 +3,7 @@
     <div
       v-for="card in cards"
       :key="card.id"
+      :class="{ 'card--black': cardType === 'black' }"
       class="card"
      >
       <div v-if="!card.faceUp" class="card-back">Devs Against Humanity</div>
@@ -12,12 +13,16 @@
 </template>
 
 <script>
-  import { mapState } from "vuex";
-
   export default {
-    computed: mapState({
-      cards: "cards"
-    })
+    props: [
+      'card-type',
+      'location'
+    ],
+    computed: {
+      cards() {
+        return this.$store.getters.cardsIn(this.$props.location);
+      }
+    }
   };
 </script>
 
@@ -41,6 +46,11 @@
     overflow: hidden;
     padding: 1.2em;
     width: 250px;
+  }
+
+  .card--black {
+    background: #333;
+    color: #fff;
   }
 
   .card-text {

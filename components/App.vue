@@ -1,5 +1,13 @@
 <template>
-  <CardList></CardList>
+  <div>
+    <CardList
+      location="hand"
+    ></CardList>
+    <CardList
+      location="deck"
+      card-type="black"
+    ></CardList>
+  </div>
 </template>
 
 <script>
