@@ -2,7 +2,7 @@
   <div class="card-list">
     <div
       v-for="card in cards"
-      v-on:click="turnCardOver(card.id)"
+      v-on:click="moveCardTo({ cardId: card.id, destination: 'deck'})"
       :key="card.id"
       :class="{ 'card--black': cardType === 'black' }"
       class="card"
@@ -23,7 +23,8 @@
     ],
     methods: {
       ...mapMutations([
-        'turnCardOver'
+        'turnCardOver',
+        'moveCardTo'
       ])
     },
     computed: {

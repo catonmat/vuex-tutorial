@@ -62,9 +62,30 @@ describe("mutations", () => {
     ];
 
     const cardId = "CARD000";
-    
+
     mutations.turnCardOver(state, cardId);
 
     expect(state[0].faceUp).to.equal(false);
+  });
+
+  it("should move a card from the deck to the hand", () => {
+    const state = [
+      {
+        id: "CARD000",
+        text: "Eating People.",
+        position: "deck",
+        faceUp: true
+      }
+    ];
+
+    const cardId = "CARD000";
+    const destination = "hand";
+
+    mutations.moveCardTo(state, {
+      cardId,
+      destination
+    });
+
+    expect(state[0].position).to.equal(destination);
   });
 });

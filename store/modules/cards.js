@@ -63,6 +63,11 @@ export const mutations = {
   turnCardOver (state, cardId) {
     const card = state.find(card => card.id === cardId);
     card.faceUp = !card.faceUp;
+  },
+  moveCardTo (state, payload) {
+    const { cardId, destination } = payload;
+    const card = state.find(card => card.id === cardId);
+    card.position = destination;
   }
 }
 
