@@ -2,6 +2,7 @@
   <div class="card-list">
     <div
       v-for="card in cards"
+      v-on:click="turnCardOver(card.id)"
       :key="card.id"
       :class="{ 'card--black': cardType === 'black' }"
       class="card"
@@ -13,11 +14,18 @@
 </template>
 
 <script>
+  import { mapMutations } from 'vuex';
+
   export default {
     props: [
       'card-type',
       'location'
     ],
+    methods: {
+      ...mapMutations([
+        'turnCardOver'
+      ])
+    },
     computed: {
       cards() {
         return this.$store.getters.cardsIn(this.$props.location);

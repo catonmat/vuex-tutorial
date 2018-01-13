@@ -59,7 +59,15 @@ export const getters = {
   }
 }
 
+export const mutations = {
+  turnCardOver (state, cardId) {
+    const card = state.find(card => card.id === cardId);
+    card.faceUp = !card.faceUp;
+  }
+}
+
 export default {
   state,
-  getters
+  getters,
+  mutations
 };
