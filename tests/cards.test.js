@@ -1,6 +1,6 @@
-// getters.spec.js
+// cards.test.js
 import { expect } from "chai";
-import { getters } from "../store/modules/cards";
+import { getters, mutations } from "../store/modules/cards";
 
 describe("getters", () => {
   it("should filter the deck cards", () => {
@@ -47,5 +47,24 @@ describe("getters", () => {
         faceUp: true
       }
     ]);
+  });
+});
+
+describe("mutations", () => {
+  it("should flip a card over", () => {
+    const state = [
+      {
+        id: "CARD000",
+        text: "Eating People.",
+        position: "deck",
+        faceUp: true
+      }
+    ];
+
+    const cardId = "CARD000";
+    
+    mutations.turnCardOver(state, cardId);
+
+    expect(state[0].faceUp).to.equal(false);
   });
 });
