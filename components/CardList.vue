@@ -1,26 +1,23 @@
 <template>
   <div class="card-list">
-    <div
+    <Card
       v-for="card in cards"
       v-on:click="moveCardTo({ cardId: card.id, destination: 'deck'})"
       :key="card.id"
-      :class="{ 'card--black': cardType === 'black' }"
-      class="card"
-     >
-      <div v-if="!card.faceUp" class="card-back">Devs Against Humanity</div>
-      <div v-if="card.faceUp" class="card-text">{{ card.text }}</div>
-    </div>
+      :face-up="card.faceUp"
+      :text="card.text"
+    >
+    </Card>
   </div>
 </template>
 
 <script>
   import { mapMutations } from 'vuex';
 
+  import Card from './Card.vue';
+
   export default {
-    props: [
-      'card-type',
-      'location'
-    ],
+    props: [ 'location' ],
     methods: {
       ...mapMutations([
         'turnCardOver',
@@ -31,7 +28,8 @@
       cards() {
         return this.$store.getters.cardsIn(this.$props.location);
       }
-    }
+    },
+    components: { Card }
   };
 </script>
 
@@ -39,36 +37,5 @@
   .card-list {
     display: flex;
     flex-wrap: wrap;
-  }
-
-  .card {
-    background: white;
-    border-radius: .5em;
-    border: 1px solid #999;
-    box-sizing: border-box;
-    color: #333;
-    display: block;
-    font-family: sans-serif;
-    font-weight: bold;
-    height: 350px;
-    margin: 1em;
-    overflow: hidden;
-    padding: 1.2em;
-    width: 250px;
-  }
-
-  .card--black {
-    background: #333;
-    color: #fff;
-  }
-
-  .card-text {
-    font-size: 1.4em;
-    line-height: 1.2em;
-  }
-
-  .card-back {
-    font-size: 2.7em;
-    line-height: 1em;
   }
 </style>
