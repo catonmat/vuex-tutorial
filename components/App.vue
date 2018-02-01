@@ -1,24 +1,33 @@
 <template>
-  <div>
-    <CardList
-      location="hand"
-    ></CardList>
-    <CardList
-      location="deck"
-      card-type="black"
-    ></CardList>
+  <div class="table">
+    <PlayArea class="play-area"></PlayArea>
+    <Deck class="deck"></Deck>
+    <Hand class="hand" playerId="1"></Hand>
   </div>
 </template>
 
 <script>
-  import CardList from "./CardList.vue";
+  import Hand from "./Hand.vue";
+  import Deck from "./Deck.vue";
+  import PlayArea from "./PlayArea.vue";
 
   export default {
     components: {
-      CardList
+      Hand,
+      Deck,
+      PlayArea
     }
   };
 </script>
 
 <style>
+  .table {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    grid-gap: 1em;
+    padding: 1em;
+  }
+  .hand {
+    grid-column: 1 / -1;
+  }
 </style>

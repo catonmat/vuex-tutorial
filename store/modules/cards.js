@@ -3,52 +3,52 @@ const state = [
   {
     id: 'CARD000',
     text: 'Eating People.',
-    position: 'deck',
+    position: 'player_1',
     faceUp: true
   }, {
     id: 'CARD001',
     text: 'Onions.',
-    position: 'deck',
+    position: 'player_1',
     faceUp: false
   }, {
     id: 'CARD002',
     text: 'Getting blasted in the face by a t-shirt cannon.',
-    position: 'deck',
+    position: 'player_1',
     faceUp: true
   }, {
     id: 'CARD003',
     text: 'Everything.',
-    position: 'hand',
+    position: 'deck',
     faceUp: true
   }, {
     id: 'CARD004',
     text: 'Librarians.',
-    position: 'hand',
+    position: 'deck',
     faceUp: true
   }, {
     id: 'CARD005',
     text: 'Going to bed at a reasonable hour.',
-    position: 'hand',
+    position: 'playArea',
     faceUp: true
   }, {
     id: 'CARD006',
     text: 'Getting this party started!',
-    position: 'hand',
+    position: 'playArea',
     faceUp: true
   }, {
     id: 'CARD007',
     text: 'A duffel bag full of lizards',
-    position: 'hand',
+    position: 'playArea',
     faceUp: true
   }, {
     id: 'CARD008',
     text: 'The clown that followed me home from the grovery store.',
-    position: 'hand',
+    position: 'player_1',
     faceUp: true
   }, {
     id: 'CARD009',
     text: 'Salsa Night at Dave\'s Cantina.',
-    position: 'hand',
+    position: 'player_1',
     faceUp: true
   }
 ];

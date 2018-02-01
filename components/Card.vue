@@ -8,6 +8,7 @@
 <script>
   export default {
     props: [
+      'id',
       'face-up',
       'text'
     ],
@@ -20,12 +21,12 @@
     border-radius: .5em;
     border: 1px solid #999;
     box-sizing: border-box;
+    box-shadow: 5px 5px 5px rgba( 100, 100, 100, .1 );
     color: #333;
     display: block;
     font-family: sans-serif;
     font-weight: bold;
     height: 350px;
-    margin: 1em;
     overflow: hidden;
     padding: 1.2em;
     width: 250px;
