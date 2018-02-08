@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.0] - 2018-02-08
+### Added
+- a `<Deck>` component
+- a `<Hand>` component
+- a `<PlayArea>` component
+- a `<Card>` component
+
+### Changed
+- Pulled the aforementioned `<Card>` component out of the `<CardList>` component.
+
 ## [0.4.0] - 2018-01-25
 ### Added
 - A flipCard mutation
