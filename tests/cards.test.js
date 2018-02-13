@@ -2,90 +2,69 @@
 import { expect } from "chai";
 import { getters, mutations } from "../store/modules/cards";
 
+const deepCopy = object => JSON.parse(JSON.stringify(object));
+
+const initialState = {
+  collections: {
+    deck: [
+      { id: "CARD000", text: "Eating People." },
+      { id: "CARD001", text: "Onions." },
+      { id: "CARD002", text: "Getting blasted in the face by a t-shirt cannon." },
+      { id: "CARD003", text: "Everything." }
+    ],
+    playArea: [
+      { id: "CARD004", text: "Librarians." },
+      { id: "CARD005", text: "Going to bed at a reasonable hour." },
+      { id: "CARD006", text: "Getting this party started!" }
+    ],
+    hand: [
+      { id: "CARD007", text: "A duffel bag full of lizards" },
+      { id: "CARD008", text: "The clown that followed me home from the grocery store." },
+      { id: "CARD009", text: "Salsa Night at Dave's Cantina." }
+    ]
+  }
+};
+
 describe("getters", () => {
   it("should filter the deck cards", () => {
-    // mock state
-    const state = [
-      {
-        id: "CARD000",
-        text: "Eating People.",
-        position: "deck",
-        faceUp: true
-      },
-      {
-        id: "CARD001",
-        text: "Onions.",
-        position: "hand",
-        faceUp: false
-      },
-      {
-        id: "CARD002",
-        text: "Getting blasted in the face by a t-shirt cannon.",
-        position: "deck",
-        faceUp: true
-      }
-    ];
-
-    // mock getter
+    const state = deepCopy(initialState);
     const location = "deck";
-
-    // get the result from the gette
     const result = getters.cardsIn(state)(location);
 
-    // assert the result
-    expect(result).to.deep.equal([
-      {
-        id: "CARD000",
-        text: "Eating People.",
-        position: "deck",
-        faceUp: true
-      },
-      {
-        id: "CARD002",
-        text: "Getting blasted in the face by a t-shirt cannon.",
-        position: "deck",
-        faceUp: true
-      }
-    ]);
+    expect(result).to.deep.equal(initialState.collections.deck);
   });
 });
 
 describe("mutations", () => {
-  it("should flip a card over", () => {
-    const state = [
-      {
-        id: "CARD000",
-        text: "Eating People.",
-        position: "deck",
-        faceUp: true
-      }
-    ];
-
+  describe("moveCardTo", () => {
     const cardId = "CARD000";
-
-    mutations.turnCardOver(state, cardId);
-
-    expect(state[0].faceUp).to.equal(false);
-  });
-
-  it("should move a card from the deck to the hand", () => {
-    const state = [
-      {
-        id: "CARD000",
-        text: "Eating People.",
-        position: "deck",
-        faceUp: true
-      }
-    ];
-
-    const cardId = "CARD000";
+    const origin = "deck";
     const destination = "hand";
+    let state;
 
-    mutations.moveCardTo(state, {
-      cardId,
-      destination
+    beforeEach(() => {
+      state = deepCopy(initialState);
+      
+      mutations.moveCardTo(state, {
+        cardId,
+        origin,
+        destination
+      });
     });
 
-    expect(state[0].position).to.equal(destination);
-  });
+    it("should have one less card in the deck", () => {  
+      expect(state.collections.deck)
+        .to.have.length(initialState.collections.deck.length - 1);
+    });
+
+    it("should have one more card in the hand", () => {  
+      expect(state.collections.hand)
+        .to.have.length(initialState.collections.hand.length + 1);
+    });
+    
+    it("should have the last card in the hand be the one we just moved", () => {  
+      expect(state.collections.hand[state.collections.hand.length - 1].id)
+        .to.equal(cardId);
+    });
+  })
 });

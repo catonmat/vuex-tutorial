@@ -25,10 +25,15 @@
         this.revealed = true;
       },
       clearPlayArea: function() {
-        this.cards.forEach(card => this.$store.commit('moveCardTo', {
-          cardId: card.id,
-          destination: 'deck'
-        }));
+        const mutations = this.cards.map(card => {
+          return {
+            cardId: card.id,
+            origin: 'playArea',
+            destination: 'deck'
+          }
+        });
+
+        mutations.forEach(mutation => this.$store.commit('moveCardTo', mutation));
         this.revealed = false;
       }
     },

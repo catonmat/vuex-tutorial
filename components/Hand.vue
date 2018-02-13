@@ -25,6 +25,7 @@
       playCard: function(cardId) {
         this.$store.commit('moveCardTo', {
           cardId,
+          origin: `player_${this.$props.playerId}`,
           destination: 'playArea'
         });
       }

@@ -16,6 +16,7 @@
       drawCard: function() {
         this.$store.commit('moveCardTo', {
           cardId: this.cards[0].id,
+          origin: 'deck',
           destination: 'player_1'
         });
       }
