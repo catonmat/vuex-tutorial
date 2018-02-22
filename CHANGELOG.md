@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6.0] - 2018-02-22
+### Added
+- more tests for the `moveCardTo` mutation
+
+### Changed
+- the data structure in the card store
+- the `moveCardTo` mutation and `getCardsIn` getters to handle the aforementioned data change
+
+### Removed
+- the `flipCard` mutation
+
 ## [0.5.0] - 2018-02-08
 ### Added
 - a `<Deck>` component
