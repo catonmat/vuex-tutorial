@@ -1,8 +1,10 @@
 <template>
-  <div class="card">
-    <div v-if="!faceUp" class="card-back">Devs Against Humanity</div>
-    <div v-if="faceUp" class="card-text">{{ text }}</div>
-  </div>
+  <transition name="drop">
+    <div class="card">
+      <div v-if="!faceUp" class="card-back">Devs Against Humanity</div>
+      <div v-if="faceUp" class="card-text">{{ text }}</div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -34,11 +36,20 @@
 
   .card-text {
     font-size: 1.4em;
-    line-height: 1.2em;
+    line-height: 1.em;
   }
 
   .card-back {
     font-size: 2.7em;
     line-height: 1em;
+  }
+
+  .drop-enter-active,
+  .drop-leave-active {
+    transition: transform .6s;
+  }
+  .drop-enter,
+  .drop-leave-to {
+    transform: translateY(200vh);
   }
 </style>

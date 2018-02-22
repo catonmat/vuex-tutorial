@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="deck">
     <Card
-      v-if="cards.length"
+      v-for="card in cards.slice().reverse()"
+      :key="card.id"
       :face-up="false"
       @click.native="drawCard()"
     ></Card>
@@ -31,4 +32,13 @@
 </script>
 
 <style scoped>
+  .deck {
+    position: relative;
+  }
+
+  .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 </style>

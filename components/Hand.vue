@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="hand">
     <div class="card-list">
       <div class="card-holder"
         v-for="card in cards"

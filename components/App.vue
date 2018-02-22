@@ -1,8 +1,8 @@
 <template>
   <div class="table">
-    <PlayArea class="play-area"></PlayArea>
-    <Deck class="deck"></Deck>
-    <Hand class="hand" playerId="1"></Hand>
+    <PlayArea></PlayArea>
+    <Deck></Deck>
+    <Hand playerId="1"></Hand>
   </div>
 </template>
 
@@ -20,7 +20,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .table {
     display: grid;
     grid-template-columns: 1fr 250px;
