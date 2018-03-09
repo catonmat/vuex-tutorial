@@ -1,6 +1,6 @@
 // cards.test.js
 import { expect } from "chai";
-import { getters, mutations } from "../store/modules/cards";
+import { getters, mutations } from "./cards";
 
 const deepCopy = object => JSON.parse(JSON.stringify(object));
 
