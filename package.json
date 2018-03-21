@@ -1,6 +1,6 @@
 {
   "name": "devs-against-humanity",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A Vue/Vuex version of the popular card game, Cards Against Humanity",
   "main": "index.js",
   "repository": "git@gitlab.com:samdbeckham/devs-against-humanity.git",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
-    "test": "mocha-webpack --watch tests/*.test.js",
+    "test": "mocha-webpack --require testSetup.js --watch {store,components}/**/*.test.js",
     "build": "webpack -p"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.12",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -24,14 +25,18 @@
     "babel-runtime": "^6.26.0",
     "chai": "^4.1.2",
     "css-loader": "^0.28.7",
+    "jsdom": "^11.6.2",
+    "jsdom-global": "^3.0.2",
     "mocha": "^4.1.0",
     "mocha-webpack": "^1.0.1",
+    "sinon": "^4.4.2",
     "vue-hot-reload-api": "^2.2.4",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.5.0",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.5.9",
     "webpack": "^3.9.1",
-    "webpack-dev-server": "^2.9.5"
+    "webpack-dev-server": "^2.9.5",
+    "webpack-node-externals": "^1.6.0"
   }
 }

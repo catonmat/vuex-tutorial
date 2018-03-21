@@ -1,4 +1,5 @@
 const path = require("path");
+const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   entry: "./main.js",
@@ -13,5 +14,7 @@ module.exports = {
       { loader: "vue-loader", test: /\.vue$/ },
       { loader: "babel-loader", test: /\.js$/, exclude: /node_modules/ }
     ]
-  }
+  },
+
+  externals: [nodeExternals()]
 };
