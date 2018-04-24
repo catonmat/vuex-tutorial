@@ -33,6 +33,15 @@ describe("getters", () => {
 
     expect(result).to.deep.equal(initialState.collections.deck);
   });
+
+  it("should return an empty array for a non-existent collection", () => {
+    const state = deepCopy(initialState);
+    const location = "notacollection";
+    const result = getters.cardsIn(state)(location);
+
+    expect(result).to.not.be.undefined;
+    expect(result).to.be.an('array').that.is.empty;
+  })
 });
 
 describe("mutations", () => {
