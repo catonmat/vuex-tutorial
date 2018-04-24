@@ -1,24 +1,13 @@
+import axios from "axios";
+
 // Initial state
 const state = {
-  collections: {
-    deck: [
-      { id: "CARD000", text: "Eating People." },
-      { id: "CARD001", text: "Onions." },
-      { id: "CARD002", text: "Getting blasted in the face by a t-shirt cannon." },
-      { id: "CARD003", text: "Everything." }
-    ],
-    playArea: [
-      { id: "CARD004", text: "Librarians." },
-      { id: "CARD005", text: "Going to bed at a reasonable hour." },
-      { id: "CARD006", text: "Getting this party started!" }
-    ],
-    player_1: [
-      { id: "CARD007", text: "A duffel bag full of lizards" },
-      { id: "CARD008", text: "The clown that followed me home from the grocery store." },
-      { id: "CARD009", text: "Salsa Night at Dave's Cantina." }
-    ]
-  }
+  collections: {}
 };
+
+axios
+  .get('http://localhost:3000/db')
+  .then(response => state.collections = response.data)
 
 export const getters = {
   cardsIn: state => location => {
