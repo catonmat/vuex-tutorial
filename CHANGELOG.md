@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.10.0] - 2018-04-26
+### Added
+- a `fetchCollections()` action
+- a `setCollections()` mutation
+- a test for safely getting an undefined collection
+- a json file for the collections data
+
+### Fixed
+- an issue with fetching undefined collections
+
+### Removed
+- The hard-coded data from the cards store
+
+### Broke
+- I have knowingly broke the tests, but will rectify this in a patch shortly
+
 ## [0.9.0] - 2018-04-11
 ### Added
 - Routing via vue-router
