@@ -1,6 +1,7 @@
 import axios from "axios";
+import firebase from "../../data/firebase";
 
-// Initial state
+const collections = firebase.database.ref('collections');
 const state = {
   collections: {}
 };
@@ -15,14 +16,14 @@ export const mutations = {
   moveCardTo(state, payload) {
     const { cardId, origin, destination } = payload;
     const originCollection = state.collections[origin];
-    const destinationCollection = state.collections[destination];
+    const destinationCollection = state.collections[destination] || [];
     const card = originCollection.find(card => card.id === cardId);
-
-    axios.delete(`http://localhost:3000/${origin}/${card.id}`);
-    axios.post(`http://localhost:3000/${destination}`, card);
 
     originCollection.splice(originCollection.indexOf(card), 1);
     destinationCollection.push(card);
+
+    collections.child(origin).set(originCollection);
+    collections.child(destination).set(destinationCollection);
   },
   setCollections(state, payload) {
     state.collections = payload;
@@ -31,9 +32,9 @@ export const mutations = {
 
 export const actions = {
   fetchCollections({ commit }) {
-    axios
-      .get('http://localhost:3000/db')
-      .then(response => commit('setCollections', response.data))
+    collections.on('value', snapshot => {
+      commit('setCollections', snapshot.val())
+    });
   }
 }
 

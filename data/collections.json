@@ -1,44 +1,45 @@
 {
-  "deck": [
-    {
-      "id": "CARD008",
-      "text": "The clown that followed me home from the grocery store."
-    },
-    {
-      "id": "CARD000",
-      "text": "Eating People."
-    }
-  ],
-  "playArea": [
-    {
-      "id": "CARD001",
-      "text": "Onions."
-    },
-    {
-      "id": "CARD003",
-      "text": "Everything."
-    }
-  ],
-  "player_1": [
-    {
-      "id": "CARD004",
-      "text": "Librarians."
-    },
-    {
-      "id": "CARD009",
-      "text": "Salsa Night at Dave's Cantina."
-    },
-    {
-      "id": "CARD005",
-      "text": "Going to bed at a reasonable hour."
-    },
-    {
-      "id": "CARD002",
-      "text": "Getting blasted in the face by a t-shirt cannon."
-    },
-    {
-      "id": "CARD007",
-      "text": "A duffel bag full of lizards"
-    }
-  ]
+  "collections": {
+    "deck": [],
+    "playArea": [
+      {
+        "id": "CARD002",
+        "text": "Getting blasted in the face by a t-shirt cannon."
+      },
+      {
+        "id": "CARD001",
+        "text": "Onions."
+      },
+      {
+        "id": "CARD005",
+        "text": "Going to bed at a reasonable hour."
+      }
+    ],
+    "player_1": [
+      {
+        "id": "CARD007",
+        "text": "A duffel bag full of lizards"
+      },
+      {
+        "id": "CARD008",
+        "text": "The clown that followed me home from the grocery store."
+      },
+      {
+        "id": "CARD000",
+        "text": "Eating People."
+      },
+      {
+        "id": "CARD003",
+        "text": "Everything."
+      },
+      {
+        "id": "CARD004",
+        "text": "Librarians."
+      },
+      {
+        "id": "CARD009",
+        "text": "Salsa Night at Dave's Cantina."
+      }
+    ]
+  }
 }

@@ -7,12 +7,13 @@
   "author": "sam@beckham.io",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot",
+    "start": "webpack-dev-server --inline --hot --host 0.0.0.0",
     "test": "mocha-webpack --require testSetup.js --watch {store,components}/**/*.test.js",
     "build": "webpack -p"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "firebase": "^4.13.1",
     "vue": "^2.5.9",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
