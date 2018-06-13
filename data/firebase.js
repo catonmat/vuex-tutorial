@@ -1,4 +1,4 @@
-import { initializeApp, database } from "firebase";
+import { initializeApp, database, auth } from "firebase";
 
 const config = {
   apiKey: "AIzaSyBnlml49bT9GomltIu_RD5b7uc2nNoIcyk",
@@ -12,5 +12,6 @@ const config = {
 initializeApp(config);
 
 export default {
-  database: database()
+  database: database(),
+  auth
 }
