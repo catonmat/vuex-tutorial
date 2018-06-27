@@ -2,7 +2,7 @@
   <div class="table">
     <PlayArea></PlayArea>
     <Deck></Deck>
-    <Hand playerId="1"></Hand>
+    <Hand></Hand>
   </div>
 </template>
 

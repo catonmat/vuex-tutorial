@@ -1,7 +1,6 @@
 {
   "collections": {
-    "deck": [],
-    "playArea": [
+    "deck": [
       {
         "id": "CARD002",
         "text": "Getting blasted in the face by a t-shirt cannon."
@@ -13,9 +12,7 @@
       {
         "id": "CARD005",
         "text": "Going to bed at a reasonable hour."
-      }
-    ],
-    "player_1": [
+      },
       {
         "id": "CARD007",
         "text": "A duffel bag full of lizards"

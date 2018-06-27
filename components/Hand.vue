@@ -18,21 +18,22 @@
 
 <script>
   import Card from './Card.vue';
+  import { mapGetters } from 'vuex';
 
   export default {
-    props: [ 'playerId' ],
     methods: {
       playCard: function(cardId) {
         this.$store.commit('moveCardTo', {
           cardId,
-          origin: `player_${this.$props.playerId}`,
+          origin: this.user.uid,
           destination: 'playArea'
         });
       }
     },
     computed: {
+      ...mapGetters(['user']),
       cards() {
-        return this.$store.getters.cardsIn(`player_${this.$props.playerId}`);
+        return this.$store.getters.cardsIn(this.user.uid);
       }
     },
     components: { Card }
