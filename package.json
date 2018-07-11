@@ -8,8 +8,9 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --inline --hot --host 0.0.0.0",
-    "test": "mocha-webpack --require testSetup.js --watch {store,components}/**/*.test.js",
-    "build": "webpack -p"
+    "test-ci": "mocha-webpack --require testSetup.js {store,components}/**/*.test.js",
+    "test": "yarn test-ci --watch",
+    "build": "webpack && cp index.html public"
   },
   "dependencies": {
     "axios": "^0.18.0",
