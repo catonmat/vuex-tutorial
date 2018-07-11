@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --inline --hot --host 0.0.0.0",
-    "test": "mocha-webpack --require testSetup.js --watch {store,components}/**/*.test.js",
+    "test-ci": "mocha-webpack --require testSetup.js {store,components}/**/*.test.js",
+    "test": "yarn test-ci --watch",
     "build": "webpack -p"
   },
   "dependencies": {
