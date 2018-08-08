@@ -1,7 +1,7 @@
 import axios from "axios";
 import firebase from "../../data/firebase";
 
-const collections = firebase.database.ref('collections');
+let collections;
 const state = {
   collections: {}
 };
@@ -31,7 +31,9 @@ export const mutations = {
 };
 
 export const actions = {
-  fetchCollections({ commit }) {
+  fetchCollections({ commit }, roomId) {
+    console.log(roomId);
+    collections = firebase.database.ref(`rooms/${roomId}/collections`);
     collections.on('value', snapshot => {
       commit('setCollections', snapshot.val())
     });

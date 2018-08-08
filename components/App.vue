@@ -10,9 +10,6 @@
 <script>
   import Auth from "./Auth.vue";
   export default {
-    components: { Auth },
-    beforeCreate() {
-      this.$store.dispatch('fetchCollections');
-    }
+    components: { Auth }
   }
 </script>

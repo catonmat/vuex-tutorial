@@ -1,0 +1,11 @@
+{
+  "rules": {
+    ".read": true,
+    "collections": {
+      "$collection": {
+        ".read": "$collection === 'deck' || $collection === 'playArea' || $collection === auth.uid",
+        ".write": "auth !== null && ($collection === 'deck' || $collection === 'playArea' || $collection === auth.uid)"
+      }
+    }
+  }
+}
