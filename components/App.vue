@@ -1,15 +1,31 @@
 <template>
   <div>
-    <router-link to="/test">Test Screen</router-link>
-    <router-link to="/card/Change me in the url bar">Card Screen</router-link>
+    <button @click="newGame()">New Game</button>
     <Auth></Auth>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+  import uid from 'uid';
+
   import Auth from "./Auth.vue";
+  import cards from "../data/collections.json";
+  import firebase from "../data/firebase";
+
   export default {
-    components: { Auth }
+    components: { Auth },
+    methods: {
+      newGame() {
+        // create new game
+        const roomId = uid(10);
+        // 0. Get the cards seed data
+        console.log(cards);
+        // 1. Copy all the cards to a new room
+        firebase.database.ref('rooms').child(roomId).set(cards);
+        // 2. Navigate to that new room
+        this.$router.push(`/room/${roomId}`);
+      }
+    }
   }
 </script>
