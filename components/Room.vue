@@ -17,9 +17,14 @@
       Deck,
       PlayArea
     },
+    watch: {
+      "$route.params.id"() {
+        this.$store.dispatch('fetchCollections', this.$route.params.id );
+      }
+    },
     beforeCreate() {
       this.$store.dispatch('fetchCollections', this.$route.params.id );
-    }
+    },
   };
 </script>
 
