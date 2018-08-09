@@ -25,7 +25,7 @@ const initialState = {
   }
 };
 
-describe("getters", () => {
+xdescribe("getters", () => {
   it("should filter the deck cards", () => {
     const state = deepCopy(initialState);
     const location = "deck";
@@ -44,7 +44,7 @@ describe("getters", () => {
   })
 });
 
-describe("mutations", () => {
+xdescribe("mutations", () => {
   describe("moveCardTo", () => {
     const cardId = "CARD000";
     const origin = "deck";
