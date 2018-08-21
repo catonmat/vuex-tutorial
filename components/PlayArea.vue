@@ -34,6 +34,7 @@
         });
 
         mutations.forEach(mutation => this.$store.commit('moveCardTo', mutation));
+        this.$store.commit('nextBlackCard');
         this.revealed = false;
       }
     },

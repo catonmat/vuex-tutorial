@@ -3,6 +3,7 @@
     <PlayArea></PlayArea>
     <Deck></Deck>
     <Hand></Hand>
+    <BlackCard></BlackCard>
   </div>
 </template>
 
@@ -10,20 +11,24 @@
   import Hand from "./Hand.vue";
   import Deck from "./Deck.vue";
   import PlayArea from "./PlayArea.vue";
+  import BlackCard from "./BlackCard.vue";
 
   export default {
     components: {
       Hand,
       Deck,
-      PlayArea
+      PlayArea,
+      BlackCard,
     },
     watch: {
       "$route.params.id"() {
         this.$store.dispatch('fetchCollections', this.$route.params.id );
+        this.$store.dispatch('fetchBlackCards', this.$route.params.id );
       }
     },
     beforeCreate() {
       this.$store.dispatch('fetchCollections', this.$route.params.id );
+      this.$store.dispatch('fetchBlackCards', this.$route.params.id );
     },
   };
 </script>

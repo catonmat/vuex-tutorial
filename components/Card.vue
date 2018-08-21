@@ -24,7 +24,7 @@
     border: 1px solid #999;
     box-sizing: border-box;
     box-shadow: 5px 5px 5px rgba( 100, 100, 100, .1 );
-    color: #333;
+    color: #222;
     display: block;
     font-family: sans-serif;
     font-weight: bold;

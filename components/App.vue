@@ -8,22 +8,23 @@
 
 <script>
   import uid from 'uid';
+  import shuffle from "shuffle-array";
 
   import Auth from "./Auth.vue";
-  import cards from "../data/collections.json";
+  import blackCards from "../data/blackCards.json";
+  import whiteCards from "../data/whiteCards.json";
   import firebase from "../data/firebase";
 
   export default {
     components: { Auth },
     methods: {
       newGame() {
-        // create new game
         const roomId = uid(10);
-        // 0. Get the cards seed data
-        console.log(cards);
-        // 1. Copy all the cards to a new room
+        const cards = {
+          collections: { deck: shuffle(whiteCards) },
+          blackCards: shuffle(blackCards)
+        };
         firebase.database.ref('rooms').child(roomId).set(cards);
-        // 2. Navigate to that new room
         this.$router.push(`/room/${roomId}`);
       }
     }
